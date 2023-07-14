@@ -3,28 +3,30 @@ import React from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
-const IndividualDonut = ({_id, category, title, creator, imageUrl}) => {
+const IndividualDonut = ({_id, category, title, authorId, creator, imageUrl}) => {
 
   return (
     <div>
         <div className="
-        relative 
-        before:absolute
-        before:h-full before:w-full
-        before:rounded-3xl
-        before:z-10
-        hover:before:bg-gray-600 
-        before:opacity-50
-        cursor-pointer
+        card shadow rounded-lg
         ">
       <Link class="" href='/'>
 
         <img 
-        width={500}
-        height={500}
-        className='rounded-3xl 
-        cursor-pointer relative z-0'       
+  className="artboard phone-1
+  grid flex-grow h-32 card bg-white rounded-box place-items-center
+  
+  "
+        
         src={imageUrl} id="img"/>
+       <div className="overlay">
+      <h2
+      className="title-font font-medium text-black mb-1"
+      >{title}</h2>
+      <p>{category}</p>
+      <span>{authorId.username}</span>
+      </div>
+
         </Link>
 
     </div>

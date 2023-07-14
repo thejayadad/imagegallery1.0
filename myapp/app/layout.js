@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
       <body>
    <Provider>
           <Navbar />
-          <section className='h-100'>
+          <section className='h-100 max-w-screen-xl	m-auto p-4 rounded-xl	 shadow rounded-xl '>
           {children}
 
           </section>

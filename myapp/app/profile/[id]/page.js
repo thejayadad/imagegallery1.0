@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -21,8 +22,9 @@ const ProfilePage = ({params}) => {
 
   return (
     <section>
-        <h2>Profile Page</h2>
-        {userPrompt.length < 1 ? (
+      <h2>Profile Page</h2>
+      <div className="flex">
+      {userPrompt.length < 1 ? (
           <h3>
             Donuts Are Still In The Oven
           </h3>
@@ -31,8 +33,34 @@ const ProfilePage = ({params}) => {
             <IndividualDonut {...singleUserPrompt}  />
           ))
         )}
+      </div>
     </section>
   )
 }
 
 export default ProfilePage
+
+
+
+// 'use client'
+// import { useState, useEffect } from 'react';
+// import { useRouter } from 'next/navigation'
+
+
+// const ProfilePage = ({params}) => {
+  
+
+
+//   return (
+//     <section>
+//   <h1>{user.username}'s Donuts</h1>
+//       {user.donuts.map((donut) => (
+//         <div key={donut._id}>
+//           <p>{donut.title}</p>
+//         </div>
+//       ))}
+//     </section>
+//   )
+// }
+
+// export default ProfilePage
