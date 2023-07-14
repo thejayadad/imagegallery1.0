@@ -34,7 +34,7 @@ const DonutPage = (ctx) => {
                 Edit
             </Link>
             <h3 className='text-4xl mt-6 mb-8'>Title: {donutDetails?.title}</h3>
-            <p className='mb-8'>Chef: {donutDetails?.authorId.username}</p>  
+            <p className='mb-8'>Chef: <Link href={`/profile/${ctx.params.id}`}>{donutDetails?.email}</Link></p>  
             <p className='mb-8'>Category: {donutDetails?.category}</p>  
             <div className='w-full bg-red-200'>
             <h2 className='text-center'>Comments</h2>
