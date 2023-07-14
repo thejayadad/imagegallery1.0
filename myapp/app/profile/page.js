@@ -26,12 +26,13 @@ const Profiles = () => {
 
   return (
     <section>
-        <h2>All Chefs</h2>
+        <h2 className='text-center'>All Chefs</h2>
         {users.map((user) => (
-        <div key={user._id}>
+        <div className='' key={user._id}>
           <Link href={`/profile/${user._id}`}>
            
               <h3>{user.username}</h3>
+              <h3>{user.email}</h3>
           
           </Link>
         </div>

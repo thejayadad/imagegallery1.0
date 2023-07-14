@@ -87,8 +87,30 @@ const CreateDonut = () => {
   return (
     <section>
         <h2>Create Donut</h2>
-        <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
+        <div className='bg-white p-16 rounded-2xl'>
+        <form onSubmit={handleSubmit}
+        >
+          <div
+        className='grid grid-cols-1 lg:grid-cols-3 gap-10'
+
+          >
+                        <div className='h-[450px] bg-[#e9e9e9] rounded-lg'>
+                    <label 
+                    className='m-5 flex flex-col justify-center items-center
+                    cursor-pointer h-[90%] 
+                    border-[2px] border-gray-300 border-dashed rounded-lg text-gray-600 '
+                    htmlFor='image'>
+                        Upload Image <AiOutlineFileImage />
+                    </label>
+                    <input id='image' type="file" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
+                   </div>
+
+          </div>
+               
+        <input 
+                    className='outline-none font-bold w-full'
+                    type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
+        
                     <select value={category} onChange={(e) => setCategory(e.target.value)}>
                         <option value="Hot">Hot</option>
                         <option value="Sprinkle">Sprinkle</option>
@@ -96,12 +118,14 @@ const CreateDonut = () => {
                         <option value="Filled">Filled</option>
                         <option value="Seasonal">Seasonal</option>
                     </select>
-                    <label htmlFor='image'>
-                        Upload Image <AiOutlineFileImage />
-                    </label>
-                    <input id='image' type="file" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
-                  <button>Create</button>
+                  
+                  <button
+                  className='bg-red-500 p-2
+                  text-white font-semibold px-3 
+                  rounded-lg'
+                  >Create</button>
                 </form>
+        </div>
 
         <ToastContainer />
     </section>
