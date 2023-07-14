@@ -24,7 +24,7 @@ const ProfilePage = ({params}) => {
         <h2>Profile Page</h2>
         {userPrompt.length < 1 ? (
           <h3>
-            Your Prompts is empty. Click on the Create Prompt to create one
+            Donuts Are Still In The Oven
           </h3>
         ) : (
           userPrompt.map((singleUserPrompt) => (
