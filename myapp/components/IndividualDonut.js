@@ -10,7 +10,7 @@ const IndividualDonut = ({_id, category, title, authorId, creator, imageUrl}) =>
         <div className="
         card shadow rounded-lg
         ">
-      <Link class="" href='/'>
+      <Link class=""  href={`/donut/${_id}`}>
 
         <img 
   className="artboard phone-1
