@@ -33,9 +33,12 @@ const DonutPage = (ctx) => {
             >
                 Edit
             </Link>
-        <h3 className='text-4xl'>{donutDetails?.title}</h3>
-
-        
+            <h3 className='text-4xl mt-6 mb-8'>Title: {donutDetails?.title}</h3>
+            <p className='mb-8'>Chef: {donutDetails?.authorId.username}</p>  
+            <p className='mb-8'>Category: {donutDetails?.category}</p>  
+            <div className='w-full bg-red-200'>
+            <h2 className='text-center'>Comments</h2>
+            </div>    
         </div>
         <div className="relative mt-10 -mx-4 md:-mx-12 lg:mt-0 lg:col-start-1">
         <img alt='pic' src={donutDetails?.imageUrl} />
