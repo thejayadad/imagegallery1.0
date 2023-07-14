@@ -47,7 +47,7 @@ const Category = () => {
       <div className='tabs w-full flex justify-center align-center'>
         {categories.map((category) => (
           <span           
-          className='tab tab-lg'
+          className='tab tab-lg text-5xl mt-8 mb-8'
             key={category}
             style={{ cursor: 'pointer' }}
             onClick={() => setActiveCategory(category)}

@@ -8,6 +8,7 @@ import IndividualDonut from "@/components/IndividualDonut";
 const ProfilePage = ({params}) => {
     const { data: session } = useSession();
   const [userPrompt, setUserPrompt] = useState([]);
+  const user = params.id
 
   useEffect(() => {
     const fetchPrompts = async () => {
@@ -22,7 +23,7 @@ const ProfilePage = ({params}) => {
 
   return (
     <section>
-      <h2>Profile Page</h2>
+      <h2 className="text-center">Profile Page</h2>
       <div className="flex">
       {userPrompt.length < 1 ? (
           <h3>
@@ -40,27 +41,3 @@ const ProfilePage = ({params}) => {
 
 export default ProfilePage
 
-
-
-// 'use client'
-// import { useState, useEffect } from 'react';
-// import { useRouter } from 'next/navigation'
-
-
-// const ProfilePage = ({params}) => {
-  
-
-
-//   return (
-//     <section>
-//   <h1>{user.username}'s Donuts</h1>
-//       {user.donuts.map((donut) => (
-//         <div key={donut._id}>
-//           <p>{donut.title}</p>
-//         </div>
-//       ))}
-//     </section>
-//   )
-// }
-
-// export default ProfilePage

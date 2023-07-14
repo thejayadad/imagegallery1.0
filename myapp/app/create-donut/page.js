@@ -15,7 +15,7 @@ const CreateDonut = () => {
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState("Hot")
     const [photo, setPhoto] = useState('')
-
+    const [selectedFile,setSelectedFile]=useState();
     const { data: session, status } = useSession()
     const router = useRouter()
 
@@ -86,7 +86,6 @@ const CreateDonut = () => {
 
   return (
     <section>
-        <h2>Create Donut</h2>
         <div className='bg-white p-16 rounded-2xl'>
         <form onSubmit={handleSubmit}
         >
@@ -94,25 +93,42 @@ const CreateDonut = () => {
         className='grid grid-cols-1 lg:grid-cols-3 gap-10'
 
           >
-          <div className='h-[450px] bg-[#e9e9e9] rounded-lg'>
-          <label 
-          className='m-5 flex flex-col justify-center items-center
-          cursor-pointer h-[90%] 
-          border-[2px] border-gray-300 border-dashed rounded-lg text-gray-600 '
-          htmlFor='image'>
-              <h2 className='text-4xl'>Upload Image</h2> <AiOutlineFileImage style={{ fontSize: "210px"}} />
-          </label>
-          <input id='image' type="file" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
-          </div>
+            {!selectedFile?
+            <div className='h-[450px] bg-info rounded-lg'>
+            <label 
+                className='m-5 flex flex-col justify-center items-center
+                cursor-pointer h-[90%] 
+                border-[2px] border-gray-300 border-dashed rounded-lg text-gray-600 '
+                htmlFor='image'>
+                <h2 className='text-4xl'>Upload Image</h2> <AiOutlineFileImage style={{ fontSize: "150px"}} />
+                </label>
+                <input 
+                
+                id='image' type="file" style={{ display: 'none' }} 
+                onChange={(e)=>{setPhoto(e.target.files[0]);
+                  setSelectedFile(e.target.files[0])}}
+                />
+                </div>
+
+            :null}
+            {selectedFile?
+         <div className='h-[450px] bg-[#e9e9e9] rounded-lg'>
+            <img src={window.URL.createObjectURL(selectedFile)}
+              alt='selected-donut'
+              className='h-[100%] rounded-lg'
+          
+            />
+            </div>
+            :null}
+   
 
           <div className="col-span-2 gap-4">
        <div className='w-[100%]'>
-        <input 
-                    className='outline-none font-bold w-full p-8 bg-primary rounded-xl text-5xl'
+        <input className='outline-none font-bold w-full p-8 bg-primary rounded-xl text-5xl'
                     type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
         
-                    <select 
-                    className='text-5xl select select-lg w-full max-w-full mt-8'
+                     <select 
+                    className='text-5xl select select-lg w-full max-w-full mt-8 bg-accent text-white'
                     value={category} onChange={(e) => setCategory(e.target.value)}>
                         <option value="Hot">Hot</option>
                         <option value="Sprinkle">Sprinkle</option>
@@ -126,12 +142,13 @@ const CreateDonut = () => {
       
           <div className='flex justify-end mb-6'>
                   <button
-                  className='flex text-center text-5xl btn btn-block mt-3 bg-red-500
+                  className='flex text-center text-2xl btn mt-3 bg-red-500
                   text-white font-semibold
                   rounded-lg'
                   >Create</button>
                   </div>
                 </form>
+                
         </div>
 
         <ToastContainer />
